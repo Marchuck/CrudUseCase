@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">crud</string>
+    <string name="search_text">Search...</string>
+    <string name="no_companies_lets_add">No items</string>
+    <string name="create">Add</string>
+    <string name="delete">Delete</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+</resources>
