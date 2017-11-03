@@ -100,4 +100,12 @@ public abstract class CrudPresenter<Pojo, View extends CrudView<Pojo>, RequestPa
     private void displayItems(List<Pojo> pojos) {
         view.showItems(pojos);
     }
+
+    @Override
+    public void destroy() {
+        super.destroy();
+        if (disposables!=null && !disposables.isDisposed()){
+            disposables.dispose();
+        }
+    }
 }

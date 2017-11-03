@@ -8,24 +8,29 @@ import pl.marchuck.crud.base.Hideable;
 public class CrudTextListener implements SearchView.OnQueryTextListener {
 
     private final CrudAdapter adapter;
-    private final Hideable fabHideable;
+    private final Hideable buttonHideable;
 
-    public CrudTextListener(CrudAdapter adapter, Hideable fabHideable) {
+    public CrudTextListener(CrudAdapter adapter, Hideable buttonHideable) {
         this.adapter = adapter;
-        this.fabHideable = fabHideable;
+        this.buttonHideable = buttonHideable;
     }
 
     @Override
     public boolean onQueryTextSubmit(String query) {
         adapter.filterDataSet(query);
-        fabHideable.show();
+        buttonHideable.show();
         return false;
     }
 
     @Override
     public boolean onQueryTextChange(String query) {
-        adapter.filterDataSet(query);
-        fabHideable.hide();
+
+        if (query.length() == 0) {
+            buttonHideable.show();
+        } else {
+            adapter.filterDataSet(query);
+            buttonHideable.hide();
+        }
         return false;
     }
 

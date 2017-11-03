@@ -262,15 +262,12 @@ public abstract class VeryBaseCrudFragment<Pojo extends Unique, RequestParam,
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        providePresenter().destroy();
     }
 
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
         getDirectParent().getMenuInflater().inflate(R.menu.menu_crud_delete, menu);
-    }
-
-    protected Insertable<Pojo> getInsertable() {
-        return crudAdapter;
     }
 
     private boolean isOnMainThread() {
